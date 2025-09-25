@@ -1,0 +1,847 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dynamic Test & Measurement Systems Pvt. Ltd.</title>
+
+  <!-- Tailwind CSS (CDN - for prototyping) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    // Tailwind theme customization
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dtmsBlue: '#0B5FFF'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- AOS (Animate On Scroll) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <style>
+    /* small helper for hero overlay */
+    .hero-overlay {
+      background: linear-gradient(180deg, rgba(3,37,76,0.55) 0%, rgba(3,37,76,0.65) 100%);
+    }
+  </style>
+</head>
+<body class="antialiased text-slate-800 bg-white">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="#home" class="flex items-center gap-3">
+          <div class="hidden sm:block">
+            <div class="text-lg font-semibold">Dynamic Test & Measurement Systems</div>
+            <div class="text-xs text-slate-500">(An ISO 9001 company)</div>
+          </div>
+        </a>
+
+        <nav class="hidden md:flex items-center gap-6 text-sm">
+          <a href="#about" class="hover:text-dtmsBlue">About</a>
+          <a href="#services" class="hover:text-dtmsBlue">Services</a>
+          <a href="#products" class="hover:text-dtmsBlue">Products</a>
+          <a href="#contact" class="hover:text-dtmsBlue">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden md:inline-block bg-dtmsBlue text-white px-4 py-2 rounded-md text-sm">Get in Touch</a>
+
+          <!-- mobile menu button -->
+          <button id="mobileBtn" class="md:hidden p-2 rounded-md hover:bg-slate-100" aria-label="Open menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round"
+                 stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Nav -->
+    <div id="mobileNav" class="md:hidden hidden border-t">
+      <div class="px-4 py-3 flex flex-col gap-2">
+        <a href="#about" class="py-2">About</a>
+        <a href="#services" class="py-2">Services</a>
+        <a href="#products" class="py-2">Products</a>
+        <a href="#contact" class="py-2">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO: slideshow of 3 images with same overlay content -->
+  <main id="home" class="overflow-x-hidden">
+    <section class="relative">
+      <div class="relative h-[95vh] sm:h-[95vh] md:h-[95vh] lg:h-[95vh]">
+        <!-- slides -->
+        <div id="slides" class="absolute inset-0">
+          <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-100">
+            <img src="https://picsum.photos/1400/700?random=1" alt="hero1" class="w-full h-full object-cover">
+          </div>
+          <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+            <img src="https://picsum.photos/1400/700?random=2" alt="hero2" class="w-full h-full object-cover">
+          </div>
+          <div class="slide absolute inset-0 transition-opacity duration-1000 opacity-0">
+            <img src="https://picsum.photos/1400/700?random=3" alt="hero3" class="w-full h-full object-cover">
+          </div>
+        </div>
+
+        <!-- overlay content -->
+        <div class="absolute inset-0 hero-overlay flex items-center">
+          <div class="max-w-7xl mx-auto px-6 sm:px-10">
+            <div class="text-white max-w-3xl" data-aos="fade-up">
+              <div class="text-sm uppercase tracking-wider mb-3">(An ISO 9001 company)</div>
+              <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight">
+                Your Partner in Advanced Measurement Solutions.
+              </h1>
+              <p class="mt-4 text-base sm:text-lg md:text-xl text-slate-200">
+                Dynamic Test & Measurement Systems Pvt. Ltd. provides world-class testing and measurement
+                solutions through cutting-edge technology, trusted global partnerships, and customer-focused services.
+              </p>
+
+              <div class="mt-6 flex flex-wrap gap-3">
+                <a href="#products" class="inline-block bg-white text-dtmsBlue px-4 py-2 rounded-md font-medium">Explore Our Products</a>
+                <a href="#contact" class="inline-block border border-white text-white px-4 py-2 rounded-md hover:bg-white/10">Get in Touch</a>
+              </div>
+
+              <!-- quick contact -->
+              <div class="mt-6 text-sm text-slate-200">
+                <div>📍 Rasim Crescent, 18/13, Zackariya Colony 1st Street, Choolaimedu, Chennai 600094</div>
+                <div class="mt-1">📞 +91 9840387703 | +91 9894311972</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- slide controls (dots) -->
+        <div class="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-20">
+          <button class="dot w-3 h-3 rounded-full bg-white/60" data-index="0" aria-label="slide 1"></button>
+          <button class="dot w-3 h-3 rounded-full bg-white/40" data-index="1" aria-label="slide 2"></button>
+          <button class="dot w-3 h-3 rounded-full bg-white/40" data-index="2" aria-label="slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->  
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10 space-y-16">
+      
+          <!-- Top Section: Intro & Mission/Vision -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <!-- Text -->
+            <div data-aos="fade-right" class="space-y-6">
+              <h2 class="text-dtmsBlue text-3xl font-bold">About Us</h2>
+              <p class="text-lg font-semibold text-gray-800">Dynamic Test & Measurement Systems Pvt. Ltd.</p>
+              <p class="text-gray-600 leading-relaxed">
+                Dynamic Test & Measurement Systems Pvt. Ltd. is a leading provider of advanced testing and measurement solutions, headquartered in Chennai, India. With decades of expertise and ISO 9001 certification, we are trusted by industries to deliver precision, reliability, and innovation in every project.
+              </p>
+      
+              <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="p-6 bg-white border rounded-xl shadow hover:shadow-lg transition-shadow">
+                  <h4 class="font-semibold text-gray-800">Our Mission</h4>
+                  <p class="mt-2 text-sm text-gray-600">
+                    To empower industries with state-of-the-art testing and measurement technologies that ensure performance, safety, and compliance.
+                  </p>
+                </div>
+                <div class="p-6 bg-white border rounded-xl shadow hover:shadow-lg transition-shadow">
+                  <h4 class="font-semibold text-gray-800">Our Vision</h4>
+                  <p class="mt-2 text-sm text-gray-600">
+                    To be the most trusted partner for dynamic testing and measurement solutions in India and beyond.
+                  </p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Image & Highlights -->
+            <div data-aos="fade-left" class="space-y-6">
+              <img src="https://picsum.photos/800/520?random=4" alt="about image" class="w-full h-[340px] md:h-[440px] object-cover rounded-2xl shadow-lg hover:scale-105 transition-transform duration-300">
+      
+              <div class="grid grid-cols-2 gap-4">
+                <div class="p-5 bg-white border rounded-xl shadow hover:shadow-lg transition-shadow">
+                  <h5 class="font-semibold text-gray-800">ISO 9001</h5>
+                  <p class="mt-2 text-sm text-gray-600">Quality management certified processes.</p>
+                </div>
+                <div class="p-5 bg-white border rounded-xl shadow hover:shadow-lg transition-shadow">
+                  <h5 class="font-semibold text-gray-800">Industry Experience</h5>
+                  <p class="mt-2 text-sm text-gray-600">Automotive, aerospace, electronics, energy, defense & manufacturing.</p>
+                </div>
+              </div>
+            </div>
+      
+          </div>
+      
+          <!-- Bottom Section: Core Values -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+            <!-- Precision -->
+            <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-10 h-10 text-dtmsBlue mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                  <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h5 class="font-semibold text-lg">Precision</h5>
+                <p class="mt-2 text-sm text-gray-600">Delivering accurate and reliable results.</p>
+              </div>
+            </div>
+      
+            <!-- Integrity -->
+            <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-10 h-10 text-dtmsBlue mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l7 4v6c0 5-4 9-7 10-3-1-7-5-7-10V6l7-4z" stroke-width="2"/>
+                </svg>
+                <h5 class="font-semibold text-lg">Integrity</h5>
+                <p class="mt-2 text-sm text-gray-600">Building trust through transparency.</p>
+              </div>
+            </div>
+      
+            <!-- Innovation -->
+            <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-10 h-10 text-dtmsBlue mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h5 class="font-semibold text-lg">Innovation</h5>
+                <p class="mt-2 text-sm text-gray-600">Bringing the latest global technologies.</p>
+              </div>
+            </div>
+      
+            <!-- Customer Focus -->
+            <div class="p-6 bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-10 h-10 text-dtmsBlue mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 20l9-16H3l9 16z" stroke-width="2"/>
+                  <circle cx="12" cy="9" r="2" fill="currentColor"/>
+                </svg>
+                <h5 class="font-semibold text-lg">Customer Focus</h5>
+                <p class="mt-2 text-sm text-gray-600">Tailoring solutions to meet unique needs.</p>
+              </div>
+            </div>
+      
+          </div>
+      
+        </div>
+      </section>
+      
+    
+
+    <!-- SERVICES (What & How We Do) -->
+    <!-- <section id="services" class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="text-center mb-10" data-aos="fade-up">
+          <h2 class="text-dtmsBlue text-2xl font-bold">What & How We Do</h2>
+          <p class="mt-2 text-slate-600 max-w-2xl mx-auto">End-to-end test and measurement solutions combining global technologies with local expertise.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="50">
+            <h4 class="font-semibold text-lg">Supply & Integration</h4>
+            <p class="mt-2 text-sm text-slate-600">World-class vibration test systems, data acquisition equipment, sensors and instruments.</p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <h4 class="font-semibold text-lg">Installation & Calibration</h4>
+            <p class="mt-2 text-sm text-slate-600">Professional installation, calibration and commissioning for reliable operations.</p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="150">
+            <h4 class="font-semibold text-lg">Consulting & Custom Solutions</h4>
+            <p class="mt-2 text-sm text-slate-600">Tailored solutions for automotive, aerospace, electronics, energy, and defense sectors.</p>
+          </div>
+          <div class="p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+            <h4 class="font-semibold text-lg">Training & Support</h4>
+            <p class="mt-2 text-sm text-slate-600">On-site training and long-term after-sales support to maximize uptime.</p>
+          </div>
+        </div>
+
+        <div class="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div data-aos="fade-right">
+            <h4 class="text-dtmsBlue font-semibold">How We Work</h4>
+            <ol class="mt-3 space-y-3 text-sm text-slate-600 list-decimal list-inside">
+              <li><strong>Understanding Client Needs</strong> – Engage to identify exact testing requirements.</li>
+              <li><strong>Customized Solutions</strong> – Design tailored setups using global partnerships.</li>
+              <li><strong>Seamless Implementation</strong> – Delivery, installation and calibration handled end-to-end.</li>
+              <li><strong>Ongoing Support</strong> – Maintenance, service and training to ensure uninterrupted performance.</li>
+            </ol>
+          </div>
+          <div data-aos="fade-left">
+            <img src="https://picsum.photos/720/480?random=5" alt="services" class="w-full h-[300px] object-cover rounded-lg shadow-lg">
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10">
+          <!-- Section Header -->
+          <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-dtmsBlue">What & How We Do</h2>
+            <p class="mt-3 text-slate-600 max-w-2xl mx-auto">
+              We deliver end-to-end test and measurement solutions by blending global technologies with local expertise.
+            </p>
+          </div>
+      
+          <!-- What We Do Cards -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            <div class="bg-white p-8 rounded-xl shadow hover:shadow-md transition" data-aos="zoom-in">
+              <div class="flex flex-col items-center text-center">
+                <!-- SVG -->
+                <svg class="w-12 h-12 text-dtmsBlue mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M3 7h18M3 12h18M3 17h18" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h4 class="font-semibold text-lg">Supply & Integration</h4>
+                <p class="mt-2 text-sm text-slate-600">
+                  Vibration test systems, DAQ equipment, sensors and instruments from trusted global brands.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="100">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-12 h-12 text-dtmsBlue mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                  <path d="M12 6v6l4 2" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                <h4 class="font-semibold text-lg">Installation & Calibration</h4>
+                <p class="mt-2 text-sm text-slate-600">
+                  Professional installation, calibration, and commissioning for reliable long-term performance.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="200">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-12 h-12 text-dtmsBlue mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2l9 4v6c0 5-4 9-9 10-5-1-9-5-9-10V6l9-4z" stroke-width="2"/>
+                </svg>
+                <h4 class="font-semibold text-lg">Consulting & Custom Solutions</h4>
+                <p class="mt-2 text-sm text-slate-600">
+                  Tailored solutions designed for automotive, aerospace, electronics, energy, and defense industries.
+                </p>
+              </div>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow hover:shadow-md transition" data-aos="zoom-in" data-aos-delay="300">
+              <div class="flex flex-col items-center text-center">
+                <svg class="w-12 h-12 text-dtmsBlue mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 6v6h6" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="12" cy="12" r="10" stroke-width="2"/>
+                </svg>
+                <h4 class="font-semibold text-lg">Training & Support</h4>
+                <p class="mt-2 text-sm text-slate-600">
+                  Operator training, software onboarding, and after-sales service to maximize uptime.
+                </p>
+              </div>
+            </div>
+          </div>
+      
+          <!-- How We Do It -->
+          <!-- <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            <div data-aos="fade-right">
+              <h3 class="text-2xl font-bold text-dtmsBlue mb-6">How We Work</h3>
+              <ul class="space-y-5">
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-dtmsBlue mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                  </svg>
+                  <p><strong>Understanding Client Needs</strong> – We engage deeply to define exact testing requirements.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-dtmsBlue mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                  </svg>
+                  <p><strong>Customized Solutions</strong> – Tailored setups designed using global partnerships.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-dtmsBlue mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                  </svg>
+                  <p><strong>Seamless Implementation</strong> – Delivery, installation, and calibration managed end-to-end.</p>
+                </li>
+                <li class="flex items-start gap-3">
+                  <svg class="w-6 h-6 text-dtmsBlue mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                  </svg>
+                  <p><strong>Ongoing Support</strong> – Maintenance, service, and training to ensure uninterrupted performance.</p>
+                </li>
+              </ul>
+            </div>
+            <div data-aos="fade-left">
+              <img src="https://picsum.photos/720/480?random=50" alt="services" class="w-full rounded-xl shadow-lg">
+            </div>
+          </div> -->
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <!-- Image Section -->
+            <div data-aos="fade-right" class="order-last md:order-first">
+              <img src="https://picsum.photos/720/480?random=50" alt="services" class="w-full rounded-2xl shadow-xl hover:scale-105 transition-transform duration-300">
+            </div>
+          
+            <!-- Content Section -->
+            <div data-aos="fade-left" class="space-y-8">
+              <h3 class="text-3xl font-extrabold text-dtmsBlue mb-6 text-center md:text-left">How We Work</h3>
+              
+              <div class="grid gap-6">
+                <div class="flex flex-col items-center md:flex-row md:items-start gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+                  <div class="flex-shrink-0">
+                    <svg class="w-8 h-8 text-dtmsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Understanding Client Needs</p>
+                    <p class="text-gray-600 mt-1">We engage deeply to define exact testing requirements.</p>
+                  </div>
+                </div>
+          
+                <div class="flex flex-col items-center md:flex-row md:items-start gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+                  <div class="flex-shrink-0">
+                    <svg class="w-8 h-8 text-dtmsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Customized Solutions</p>
+                    <p class="text-gray-600 mt-1">Tailored setups designed using global partnerships.</p>
+                  </div>
+                </div>
+          
+                <div class="flex flex-col items-center md:flex-row md:items-start gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+                  <div class="flex-shrink-0">
+                    <svg class="w-8 h-8 text-dtmsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Seamless Implementation</p>
+                    <p class="text-gray-600 mt-1">Delivery, installation, and calibration managed end-to-end.</p>
+                  </div>
+                </div>
+          
+                <div class="flex flex-col items-center md:flex-row md:items-start gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow">
+                  <div class="flex-shrink-0">
+                    <svg class="w-8 h-8 text-dtmsBlue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path d="M5 12l5 5L20 7" stroke-width="2"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold">Ongoing Support</p>
+                    <p class="text-gray-600 mt-1">Maintenance, service, and training to ensure uninterrupted performance.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </section>
+      
+
+    <!-- PRODUCTS -->
+    <!-- <section id="products" class="py-16">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="text-center mb-10" data-aos="fade-up">
+          <h2 class="text-dtmsBlue text-2xl font-bold">Products & Brands</h2>
+          <p class="mt-2 text-slate-600 max-w-2xl mx-auto">We represent globally renowned brands in testing and measurement technologies.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="p-6 bg-white rounded-lg border" data-aos="flip-left">
+            <h4 class="font-semibold">Vibration Test Systems — IMV Corporation</h4>
+            <p class="mt-3 text-sm text-slate-600">Advanced vibration testing solutions for automotive, aerospace, electronics, and defense industries.</p>
+            <a href="https://we-are-imv.com/en/business/products/vibrationtest/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm">Learn more →</a>
+          </div>
+
+          <div class="p-6 bg-white rounded-lg border" data-aos="flip-left" data-aos-delay="80">
+            <h4 class="font-semibold">Data Acquisition & Power Analysis — DEWETRON</h4>
+            <p class="mt-3 text-sm text-slate-600">High-precision measurement systems for data acquisition, power analysis, and mixed-signal testing.</p>
+            <a href="https://www.dewetron.com/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm">Learn more →</a>
+          </div>
+
+          <div class="p-6 bg-white rounded-lg border" data-aos="flip-left" data-aos-delay="160">
+            <h4 class="font-semibold">Dynamic Balancing & Vibration Analysis — DJB Instruments</h4>
+            <p class="mt-3 text-sm text-slate-600">Specialized vibration sensors, accelerometers, and instrumentation for dynamic balancing.</p>
+            <a href="https://www.djbinstruments.com/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm">Learn more →</a>
+          </div>
+
+          <div class="p-6 bg-white rounded-lg border" data-aos="flip-left">
+            <h4 class="font-semibold">Acoustics & Microphones — Microtech Gefell</h4>
+            <p class="mt-3 text-sm text-slate-600">High-quality microphones and acoustic measurement solutions.</p>
+            <a href="https://www.microtechgefell.de/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm">Learn more →</a>
+          </div>
+
+          <div class="p-6 bg-white rounded-lg border" data-aos="flip-left" data-aos-delay="80">
+            <h4 class="font-semibold">Vibration Control & Data Acquisition — Crystal Instruments</h4>
+            <p class="mt-3 text-sm text-slate-600">Cutting-edge vibration controllers, analyzers, and real-time dynamic signal acquisition systems.</p>
+            <a href="https://www.crystalinstruments.com/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="products" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10">
+          
+          <!-- Section Heading -->
+          <div class="text-center mb-14" data-aos="fade-up">
+            <h2 class="text-dtmsBlue text-3xl font-bold">Products & Brands</h2>
+            <p class="mt-3 text-slate-600 max-w-2xl mx-auto">
+              We represent globally renowned brands in testing and measurement technologies.
+            </p>
+          </div>
+      
+          <!-- Products Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- IMV -->
+            <div class="group bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden" data-aos="zoom-in">
+              <img src="https://picsum.photos/720/480?random=50" alt="IMV Logo" class="w-full h-32 object-contain bg-gray-100 p-4">
+              <div class="p-6">
+                <h4 class="font-semibold text-lg">Vibration Test Systems — IMV Corporation</h4>
+                <p class="mt-3 text-sm text-slate-600">Advanced vibration testing solutions for automotive, aerospace, electronics, and defense industries.</p>
+                <a href="https://we-are-imv.com/en/business/products/vibrationtest/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm font-medium group-hover:underline">Learn more →</a>
+              </div>
+            </div>
+      
+            <!-- DEWETRON -->
+            <div class="group bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden" data-aos="zoom-in" data-aos-delay="80">
+              <img src="https://picsum.photos/720/480?random=50" alt="DEWETRON Logo" class="w-full h-32 object-contain bg-gray-100 p-4">
+              <div class="p-6">
+                <h4 class="font-semibold text-lg">Data Acquisition & Power Analysis — DEWETRON</h4>
+                <p class="mt-3 text-sm text-slate-600">High-precision measurement systems for data acquisition, power analysis, and mixed-signal testing.</p>
+                <a href="https://www.dewetron.com/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm font-medium group-hover:underline">Learn more →</a>
+              </div>
+            </div>
+      
+            <!-- DJB -->
+            <div class="group bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden" data-aos="zoom-in" data-aos-delay="160">
+              <img src="https://picsum.photos/720/480?random=50" alt="DJB Logo" class="w-full h-32 object-contain bg-gray-100 p-4">
+              <div class="p-6">
+                <h4 class="font-semibold text-lg">Dynamic Balancing & Vibration Analysis — DJB Instruments</h4>
+                <p class="mt-3 text-sm text-slate-600">Specialized vibration sensors, accelerometers, and instrumentation for dynamic balancing.</p>
+                <a href="https://www.djbinstruments.com/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm font-medium group-hover:underline">Learn more →</a>
+              </div>
+            </div>
+      
+            <!-- Microtech -->
+            <div class="group bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden" data-aos="zoom-in">
+              <img src="https://picsum.photos/720/480?random=50" alt="Microtech Gefell Logo" class="w-full h-32 object-contain bg-gray-100 p-4">
+              <div class="p-6">
+                <h4 class="font-semibold text-lg">Acoustics & Microphones — Microtech Gefell</h4>
+                <p class="mt-3 text-sm text-slate-600">High-quality microphones and acoustic measurement solutions.</p>
+                <a href="https://www.microtechgefell.de/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm font-medium group-hover:underline">Learn more →</a>
+              </div>
+            </div>
+      
+            <!-- Crystal Instruments -->
+            <div class="group bg-white rounded-2xl shadow hover:shadow-xl transition overflow-hidden" data-aos="zoom-in" data-aos-delay="80">
+              <img src="https://picsum.photos/720/480?random=50" alt="Crystal Instruments Logo" class="w-full h-32 object-contain bg-gray-100 p-4">
+              <div class="p-6">
+                <h4 class="font-semibold text-lg">Vibration Control & Data Acquisition — Crystal Instruments</h4>
+                <p class="mt-3 text-sm text-slate-600">Cutting-edge vibration controllers, analyzers, and real-time dynamic signal acquisition systems.</p>
+                <a href="https://www.crystalinstruments.com/" target="_blank" class="mt-4 inline-block text-dtmsBlue text-sm font-medium group-hover:underline">Learn more →</a>
+              </div>
+            </div>
+      
+          </div>
+        </div>
+      </section>
+      
+
+    <!-- CONTACT -->
+    <!-- <section id="contact" class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          <div data-aos="fade-right">
+            <h2 class="text-dtmsBlue text-2xl font-bold">Contact Us</h2>
+            <p class="mt-3 text-slate-600">Let’s discuss how we can power your testing needs with precision solutions.</p>
+
+            <div class="mt-6 space-y-3 text-sm text-slate-700">
+              <div><strong>Company:</strong> Dynamic Test & Measurement Systems Pvt. Ltd. (An ISO 9001 company)</div>
+              <div><strong>Address:</strong> Rasim Crescent, 18/13, Zackariya Colony 1st Street, Choolaimedu, Chennai – 600094, India</div>
+              <div><strong>Mobile:</strong> +91 9840387703 | +91 9894311972</div>
+              <div><strong>Email:</strong> <a href="mailto:sales@dynamic-tm.com" class="text-dtmsBlue">sales@dynamic-tm.com</a></div>
+            </div>
+
+            <div class="mt-6">
+              <h4 class="font-semibold">Product resources</h4>
+              <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li><a href="https://we-are-imv.com/en/business/products/vibrationtest/" target="_blank" class="text-dtmsBlue">IMV — Vibration Test Systems</a></li>
+                <li><a href="https://www.dewetron.com/" target="_blank" class="text-dtmsBlue">DEWETRON — Data Acquisition</a></li>
+                <li><a href="https://www.djbinstruments.com/" target="_blank" class="text-dtmsBlue">DJB Instruments</a></li>
+                <li><a href="https://www.microtechgefell.de/" target="_blank" class="text-dtmsBlue">Microtech Gefell</a></li>
+                <li><a href="https://www.crystalinstruments.com/" target="_blank" class="text-dtmsBlue">Crystal Instruments</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div data-aos="fade-left">
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+              <h4 class="font-semibold">Send us a message</h4>
+              <form id="contactForm" class="mt-4 space-y-3">
+                <div>
+                  <label class="text-xs text-slate-600">Name</label>
+                  <input required class="mt-1 w-full border rounded px-3 py-2 text-sm" name="name" placeholder="Your name">
+                </div>
+                <div>
+                  <label class="text-xs text-slate-600">Company</label>
+                  <input class="mt-1 w-full border rounded px-3 py-2 text-sm" name="company" placeholder="Company (optional)">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                  <div>
+                    <label class="text-xs text-slate-600">Email</label>
+                    <input required type="email" class="mt-1 w-full border rounded px-3 py-2 text-sm" name="email" placeholder="you@company.com">
+                  </div>
+                  <div>
+                    <label class="text-xs text-slate-600">Phone</label>
+                    <input class="mt-1 w-full border rounded px-3 py-2 text-sm" name="phone" placeholder="+91 98765 43210">
+                  </div>
+                </div>
+                <div>
+                  <label class="text-xs text-slate-600">Message</label>
+                  <textarea required class="mt-1 w-full border rounded px-3 py-2 text-sm" name="message" rows="4" placeholder="Tell us about your testing requirements..."></textarea>
+                </div>
+                <div>
+                  <button type="submit" class="w-full bg-dtmsBlue text-white px-4 py-2 rounded-md">Send Message</button>
+                </div>
+                <p id="formMsg" class="text-sm mt-2 text-green-600 hidden">Thanks — your message is ready to be sent (this is a demo form).</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 sm:px-10">
+          
+          <!-- Section Header -->
+          <div class="text-center mb-12" data-aos="fade-up">
+            <h2 class="text-dtmsBlue text-3xl font-bold">Get in Touch</h2>
+            <p class="mt-3 text-slate-600 max-w-2xl mx-auto">
+              We’d love to hear from you. Reach out for product inquiries, support, or collaborations.
+            </p>
+          </div>
+      
+          <!-- Contact Grid -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+            
+            <!-- Contact Information -->
+            <div data-aos="fade-right" class="space-y-8">
+              <div class="space-y-6">
+                <h3 class="text-xl font-semibold text-gray-800">Contact Information</h3>
+                <p class="text-sm text-slate-600">
+                  Dynamic Test & Measurement Systems Pvt. Ltd. <br>(An ISO 9001 company)
+                </p>
+      
+                <div class="grid gap-4 sm:gap-6">
+                  
+                  <!-- Address -->
+                  <div class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-dtmsBlue/10 text-dtmsBlue">
+                      <!-- Location Icon -->
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 11c1.657 0 3-1.343 3-3S13.657 5 12 5s-3 1.343-3 3 1.343 3 3 3z"/>
+                        <path d="M12 22s8-7.333 8-13a8 8 0 10-16 0c0 5.667 8 13 8 13z"/>
+                      </svg>
+                    </div>
+                    <p class="text-sm text-slate-700">
+                      Rasim Crescent, 18/13, Zackariya Colony 1st Street, <br>
+                      Choolaimedu, Chennai – 600094, India <br>
+                      <a href="https://goo.gl/maps/jEXAMPLE" target="_blank" class="text-dtmsBlue text-xs hover:underline">View on Google Maps</a>
+                    </p>
+                  </div>
+      
+                  <!-- Phone -->
+                  <div class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-dtmsBlue/10 text-dtmsBlue">
+                      <!-- Phone Icon -->
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2A19.8 19.8 0 013 5.18 2 2 0 015 3h3a2 2 0 012 1.72c.12.81.36 1.6.7 2.34a2 2 0 01-.45 2.11l-1.27 1.27a16 16 0 006.58 6.58l1.27-1.27a2 2 0 012.11-.45c.74.34 1.53.58 2.34.7A2 2 0 0122 16.92z"/>
+                      </svg>
+                    </div>
+                    <p class="text-sm text-slate-700">
+                      <a href="tel:+919840387703" class="hover:underline">+91 9840387703</a> | 
+                      <a href="tel:+919894311972" class="hover:underline">+91 9894311972</a>
+                    </p>
+                  </div>
+      
+                  <!-- Email -->
+                  <div class="flex items-start gap-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition">
+                    <div class="flex-shrink-0 w-10 h-10 flex items-center justify-center rounded-full bg-dtmsBlue/10 text-dtmsBlue">
+                      <!-- Email Icon -->
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 4h16v16H4V4z" stroke-width="2" stroke-linejoin="round"/>
+                        <path d="M22 6l-10 7L2 6" stroke-width="2" stroke-linecap="round"/>
+                      </svg>
+                    </div>
+                    <p class="text-sm text-slate-700">
+                      <a href="mailto:sales@dynamic-tm.com" class="text-dtmsBlue font-medium hover:underline">
+                        sales@dynamic-tm.com
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+      
+              <!-- Product Links -->
+              <div>
+                <h4 class="font-semibold text-gray-800">Product Resources</h4>
+                <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                  <li><a href="https://we-are-imv.com/en/business/products/vibrationtest/" target="_blank" class="text-dtmsBlue hover:underline">IMV — Vibration Test Systems</a></li>
+                  <li><a href="https://www.dewetron.com/" target="_blank" class="text-dtmsBlue hover:underline">DEWETRON — Data Acquisition</a></li>
+                  <li><a href="https://www.djbinstruments.com/" target="_blank" class="text-dtmsBlue hover:underline">DJB Instruments</a></li>
+                  <li><a href="https://www.microtechgefell.de/" target="_blank" class="text-dtmsBlue hover:underline">Microtech Gefell</a></li>
+                  <li><a href="https://www.crystalinstruments.com/" target="_blank" class="text-dtmsBlue hover:underline">Crystal Instruments</a></li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Contact Form -->
+            <div data-aos="fade-left">
+              <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition">
+                <h4 class="text-lg font-semibold text-gray-800">Send us a message</h4>
+                <form id="contactForm" class="mt-6 space-y-4">
+                  
+                  <div>
+                    <label class="text-xs text-slate-600">Name</label>
+                    <input required class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-dtmsBlue" name="name" placeholder="Your name">
+                  </div>
+                  <div>
+                    <label class="text-xs text-slate-600">Company</label>
+                    <input class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-dtmsBlue" name="company" placeholder="Company (optional)">
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label class="text-xs text-slate-600">Email</label>
+                      <input required type="email" class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-dtmsBlue" name="email" placeholder="you@company.com">
+                    </div>
+                    <div>
+                      <label class="text-xs text-slate-600">Phone</label>
+                      <input class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-dtmsBlue" name="phone" placeholder="+91 98765 43210">
+                    </div>
+                  </div>
+                  <div>
+                    <label class="text-xs text-slate-600">Message</label>
+                    <textarea required class="mt-1 w-full border rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-dtmsBlue" name="message" rows="4" placeholder="Tell us about your testing requirements..."></textarea>
+                  </div>
+                  <div>
+                    <button type="submit" class="w-full bg-dtmsBlue text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Send Message</button>
+                  </div>
+                  <p id="formMsg" class="text-sm mt-2 text-green-600 hidden">Thanks — your message is ready to be sent (demo form).</p>
+                </form>
+              </div>
+            </div>
+          </div>
+      
+          <!-- Map -->
+          <div class="mt-12" data-aos="fade-up">
+            <iframe class="w-full h-72 rounded-xl shadow-md" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.925571788763!2d80.223!3d13.070!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52673edcd38e5b%3A0x9f5292eaa8bf10f2!2sChoolaimedu%2C%20Chennai!5e0!3m2!1sen!2sin!4v163594662" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+      
+        </div>
+      </section>
+      
+      
+    <!-- FOOTER -->
+    <footer class="bg-white border-t">
+      <div class="max-w-7xl mx-auto px-6 sm:px-10 py-8">
+        <div class="md:flex md:justify-between md:items-start">
+          <div class="mb-6 md:mb-0">
+            <div class="flex items-center gap-3">
+              <div>
+                <div class="font-semibold">Dynamic Test & Measurement Systems</div>
+                <div class="text-xs text-slate-500">(An ISO 9001 company)</div>
+              </div>
+            </div>
+
+            <p class="text-sm text-slate-600 mt-4 max-w-sm">Your Partner in Precision Testing & Measurement Solutions.</p>
+          </div>
+
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <h6 class="font-semibold text-sm">Quick Links</h6>
+              <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li><a href="#home" class="hover:text-dtmsBlue">Home</a></li>
+                <li><a href="#about" class="hover:text-dtmsBlue">About</a></li>
+                <li><a href="#services" class="hover:text-dtmsBlue">Services</a></li>
+                <li><a href="#products" class="hover:text-dtmsBlue">Products</a></li>
+                <li><a href="#contact" class="hover:text-dtmsBlue">Contact</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h6 class="font-semibold text-sm">Contact</h6>
+              <ul class="mt-3 text-sm text-slate-600 space-y-2">
+                <li>Rasim Crescent, 18/13, Zackariya Colony 1st Street</li>
+                <li>Choolaimedu, Chennai – 600094, India</li>
+                <li>📞 +91 9840387703 | +91 9894311972</li>
+                <li>✉️ <a href="mailto:sales@dynamic-tm.com" class="text-dtmsBlue">sales@dynamic-tm.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 border-t pt-4 text-sm text-slate-500 text-center">
+          © 2025 Dynamic Test & Measurement Systems Pvt. Ltd. | All Rights Reserved.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Scripts -->
+  <script>
+    // Mobile nav toggle
+    const mobileBtn = document.getElementById('mobileBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    mobileBtn.addEventListener('click', () => {
+      mobileNav.classList.toggle('hidden');
+    });
+
+    // Simple slideshow logic
+    const slides = document.querySelectorAll('#slides .slide');
+    const dots = document.querySelectorAll('.dot');
+    let current = 0;
+    const switchSlide = (index) => {
+      slides.forEach((s, i) => {
+        s.style.opacity = (i === index) ? '1' : '0';
+      });
+      dots.forEach((d, i) => {
+        d.classList.toggle('bg-white/60', i === index);
+        d.classList.toggle('bg-white/40', i !== index);
+      });
+      current = index;
+    };
+
+    dots.forEach(d => {
+      d.addEventListener('click', () => switchSlide(parseInt(d.dataset.index)));
+    });
+
+    // auto rotate every 5s
+    setInterval(() => {
+      const next = (current + 1) % slides.length;
+      switchSlide(next);
+    }, 5000);
+
+    // Contact form demo handler
+    const form = document.getElementById('contactForm');
+    const formMsg = document.getElementById('formMsg');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // for a real site, integrate with backend / API / email system
+      formMsg.classList.remove('hidden');
+      setTimeout(() => formMsg.classList.add('hidden'), 4000);
+      form.reset();
+    });
+
+    // Initialize AOS
+    AOS.init({
+      duration: 700,
+      once: true
+    });
+  </script>
+</body>
+</html>
